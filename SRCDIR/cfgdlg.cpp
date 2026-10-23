@@ -29,6 +29,7 @@ CfgDlg::CfgDlg(wxWindow* parent, wxWindowID id, MIDI *midi, Proph2000 *proph, Au
 {
 #ifdef __WXMAC__
    m_use_burst_hw->Disable();
+   m_burst_baud->SetMinSize(wxSize(150, -1)); // "31250 baud (100%)" doesn't fit the Windows size
 #endif
    
    
@@ -52,25 +53,6 @@ CfgDlg::CfgDlg(wxWindow* parent, wxWindowID id, MIDI *midi, Proph2000 *proph, Au
    }
 #endif
 
-#ifdef USE_RTMIDI
-   map<int, int>::iterator myItr = m_midi->getInputDeviceList().begin();
-   while(myItr != m_midi->getInputDeviceList().end())
-   {
-      wxString str;
-      str.sprintf(wxT("%s"), m_midi->getMIDIInDevice()->getPortName((*myItr).second).c_str());
-      m_midi_in_device->Append(str);
-      ++myItr;
-   }
-
-   map<int, int>::iterator myItr2 = m_midi->getOutputDeviceList().begin();
-   while(myItr2 != m_midi->getOutputDeviceList().end())
-   {
-      wxString str;
-      str.sprintf(wxT("%s"), m_midi->getMIDIOutDevice()->getPortName((*myItr2).second).c_str());
-      m_midi_out_device->Append(str);
-      ++myItr2;
-   }
-#endif
 
 #ifdef USE_MSSMIDI
    list<MIDIINCAPS>::const_iterator myItr = m_midi->getInputDeviceList().begin();

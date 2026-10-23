@@ -9,7 +9,9 @@
 #include "stopwatch.h"
 #include "proph2000.h"
 #include "main.h"
-#include <windows.h>
+#ifndef __WXMAC__
+   #include <windows.h>
+#endif
 #include <list>
 #include <map>
 using namespace std;

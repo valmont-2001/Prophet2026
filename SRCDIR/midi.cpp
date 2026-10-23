@@ -48,17 +48,6 @@ using namespace std;
    bool mttx = true;
 #endif
 
-#ifdef USE_RTMIDI
-   MIDI *midi_instance;
-   void mymidiincallback( double deltatime, std::vector< unsigned char > *message, void *userData )
-   {
-      midi_instance->inCallback(deltatime, message, userData);
-   }
-   #define MIDI_APP_BUFSIZE 65534
-   volatile unsigned char m_midi_rx_buf[MIDI_APP_BUFSIZE];
-   volatile unsigned int m_midi_rx_in_idx;
-   volatile unsigned int m_midi_rx_out_idx;
-#endif
 
 
 MIDI::MIDI(Logger *log) : m_in_device_id(0), m_out_device_id(0), m_channel(1), m_open(false), m_use_midi(true),
@@ -108,72 +97,6 @@ MIDI::MIDI(Logger *log) : m_in_device_id(0), m_out_device_id(0), m_channel(1), m
    }
 #endif
 
-#ifdef USE_RTMIDI
-   unsigned char in_idx = 0;
-   unsigned char out_idx = 0;
-
-   midi_instance = this;
-
-   try {
-#ifdef __MACOSX__
-      m_midi_out = new RtMidiOut(RtMidi::MACOSX_CORE);
-      m_midi_in = new RtMidiIn(RtMidi::MACOSX_CORE);
-#else
-      m_midi_out = new RtMidiOut();
-      m_midi_in = new RtMidiIn();
-#endif
-   }
-#ifdef __MACOSX__
-   catch ( RtMidiError &error )
-#else
-   catch ( RtError &error )
-#endif
-   {
-      error.printMessage();
-   }
-
-   m_midi_in->setCallback( &mymidiincallback );
-
-   m_midi_in->ignoreTypes(false, true, true); // Don't ignore sysex; ignore timing, or active sensing messages.
-
-   m_devs_connected = m_midi_out->getPortCount();
-   
-   
-   //m_log->log("Output m_devs_connected %d", m_devs_connected);
-
-   if(m_devs_connected == 1)
-   {
-      //m_log->log("%d %s", 0, m_midi_out->getPortName().c_str());
-      m_out_devices_map[0] = 0;      
-   }
-   else
-   {
-      for(i = 0; i < m_devs_connected; i++)
-      {
-         //m_log->log("%d %s", i, m_midi_out->getPortName(i).c_str());
-         m_out_devices_map[out_idx] = i;
-         out_idx++;
-      }
-   }
-
-   m_devs_connected = m_midi_in->getPortCount();
-   //m_log->log("Input m_devs_connected %d", m_devs_connected);
-
-   if(m_devs_connected == 1)
-   {
-      //m_log->log("%d %s", 0, m_midi_in->getPortName().c_str());
-      m_in_devices_map[0] = 0;      
-   }
-   else
-   {
-      for(i = 0; i < m_devs_connected; i++)
-      {
-         //m_log->log("%d %s", i, m_midi_in->getPortName(i).c_str());
-         m_in_devices_map[in_idx] = i;
-         in_idx++;
-      }
-   }
-#endif
 
 #ifdef USE_MSSMIDI
    MIDIINCAPS inputCapabilities;
@@ -223,10 +146,6 @@ MIDI::~MIDI()
    }
 #ifdef USE_PORTMIDI
    Pm_Terminate();
-#endif
-#ifdef USE_RTMIDI
-   delete m_midi_out;
-   delete m_midi_in;
 #endif
 
 #ifndef _CONSOLE
@@ -349,8 +268,15 @@ bool MIDI::init(void)
 
          //m_log->log("in:%d out:%d", indev, outdev);
 
-         err = Pm_OpenInput(&midi_in, indev, NULL, 512, NULL, NULL);
-         if(err == pmNoError)
+         // PortMidi 2.x doesn't range check the device id in Pm_OpenInput/Pm_OpenOutput
+         // and crashes if no (or not this) MIDI device is connected
+         const PmDeviceInfo *in_info = Pm_GetDeviceInfo(indev);
+         const PmDeviceInfo *out_info = Pm_GetDeviceInfo(outdev);
+         if(!in_info || !in_info->input || !out_info || !out_info->output)
+         {
+            m_log->log("MIDI::init() no MIDI device available");
+         }
+         else if((err = Pm_OpenInput(&midi_in, indev, NULL, 512, NULL, NULL)) == pmNoError)
          {
             err = Pm_OpenOutput(&midi_out, outdev, NULL, 0, NULL, NULL, latency);
             if(err == pmNoError)
@@ -369,45 +295,6 @@ bool MIDI::init(void)
          }
 #endif
 
-#ifdef USE_RTMIDI
-         unsigned char indev = 0;
-         unsigned char outdev = 0;
-
-         map<int, int>::iterator myItr = m_in_devices_map.begin();
-         while((myItr != m_in_devices_map.end()) && (!indev))
-         {
-            if((*myItr).first == m_in_device_id)
-            {
-               indev = (*myItr).second;
-            }
-            ++myItr;
-         }
-
-         myItr = m_out_devices_map.begin();
-         while((myItr != m_out_devices_map.end()) && (!outdev))
-         {
-            if((*myItr).first == m_out_device_id)
-            {
-               outdev = (*myItr).second;
-            }
-            ++myItr;
-         }
-
-         //m_log->log("in:%d out:%d", indev, outdev);
-         try {
-            m_midi_in->openPort( indev );
-            m_midi_out->openPort( outdev );
-            ret = 0;
-         }   
-#ifdef __MACOSX__
-         catch ( RtMidiError &error )
-#else
-         catch ( RtError &error )
-#endif
-         {
-            error.printMessage();
-         }
-#endif
 
 
 #ifdef USE_MSSMIDI
@@ -568,26 +455,6 @@ void MIDI::sendMIDIPacket(unsigned char *data, unsigned char len)
 #ifdef USE_PORTMIDI
       Pm_WriteSysEx(midi_out, 0, data);
 #endif
-#ifdef USE_RTMIDI
-      std::vector<unsigned char> message;
-      for (i=0; i < len; i++)
-      {
-         message.push_back(data[i]);
-      }
-
-      try
-      {
-         m_midi_out->sendMessage( &message );
-      }
-#ifdef __MACOSX__
-      catch ( RtMidiError &error )
-#else
-      catch ( RtError &error )
-#endif
-      {
-         error.printMessage();
-      }
-#endif
 #ifdef USE_MSSMIDI
       midi_senddata(data, len);
 #endif
@@ -615,23 +482,6 @@ void MIDI::close(void)
       {
          Pm_Close(midi_out);
          Pm_Close(midi_in);
-      }
-#endif
-#ifdef USE_RTMIDI
-      if(m_open)
-      {
-         try {
-            m_midi_in->closePort();
-            m_midi_out->closePort();
-         }
-#ifdef __MACOSX__
-         catch ( RtMidiError &error )
-#else
-         catch ( RtError &error )
-#endif
-         {
-            error.printMessage();
-         }
       }
 #endif
 #ifdef USE_MSSMIDI
@@ -670,25 +520,6 @@ void MIDI::sendProgramChange(uint8_t value)
             buffer.message = Pm_Message(0xC0 + i, value, 0);
             Pm_Write(midi_out, &buffer, 1);
 #endif
-#ifdef USE_RTMIDI
-            std::vector<unsigned char> message;
-            message.push_back( 0xC0 + i );
-            message.push_back( value );
-            m_midi_out->sendMessage( &message );
-
-            try
-            {
-               m_midi_out->sendMessage( &message );
-            }
-#ifdef __MACOSX__
-            catch ( RtMidiError &error )
-#else
-            catch ( RtError &error )
-#endif
-            {
-               error.printMessage();
-            }
-#endif
 #ifdef USE_MSSMIDI
             midi_programchange(i, value);
 #endif
@@ -720,26 +551,6 @@ void MIDI::sendController(uint8_t ctrl_id, uint8_t value)
          PmEvent buffer;
          buffer.message = Pm_Message(0xB0 + (m_channel - 1), ctrl_id, value);
          Pm_Write(midi_out, &buffer, 1);      
-#endif
-#ifdef USE_RTMIDI
-            std::vector<unsigned char> message;
-            message.push_back( 0xB0 + (m_channel - 1) );
-            message.push_back( ctrl_id );
-            message.push_back( value );
-            m_midi_out->sendMessage( &message );
-
-            try
-            {
-               m_midi_out->sendMessage( &message );
-            }
-#ifdef __MACOSX__
-            catch ( RtMidiError &error )
-#else
-            catch ( RtError &error )
-#endif
-            {
-               error.printMessage();
-            }
 #endif
 #ifdef USE_MSSMIDI
          midi_controlchange(m_channel - 1, ctrl_id, value);
@@ -776,16 +587,6 @@ void MIDI::flush(void)
             count = Pm_Read(midi_in, &in_event, 1);
          }
          while(count == 1);
-#ifndef _CONSOLE
-         m_in_queue_mutex->Lock();
-#endif
-         m_midi_rx_in_idx = 0;
-         m_midi_rx_out_idx = 0;
-#ifndef _CONSOLE
-         m_in_queue_mutex->Unlock();
-#endif
-#endif
-#ifdef USE_RTMIDI
 #ifndef _CONSOLE
          m_in_queue_mutex->Lock();
 #endif
@@ -846,18 +647,6 @@ bool MIDI::dataAvailable(void)
          m_in_queue_mutex->Unlock();
 #endif
 #endif
-#ifdef USE_RTMIDI
-#ifndef _CONSOLE
-         m_in_queue_mutex->Lock();
-#endif
-         if(m_midi_rx_in_idx != m_midi_rx_out_idx)
-         {
-            retval = true;
-         }
-#ifndef _CONSOLE
-         m_in_queue_mutex->Unlock();
-#endif
-#endif
 #ifdef USE_MSSMIDI
 #ifndef _CONSOLE
          m_in_queue_mutex->Lock();
@@ -896,23 +685,6 @@ unsigned char MIDI::getDataByte(void)
    if(m_use_midi)
    {
 #ifdef USE_PORTMIDI
-      if(m_open)
-      {
-#ifndef _CONSOLE
-         m_in_queue_mutex->Lock();
-#endif
-         data = m_midi_rx_buf[m_midi_rx_out_idx];
-         m_midi_rx_out_idx++;
-         if(m_midi_rx_out_idx >= MIDI_APP_BUFSIZE)
-         {
-            m_midi_rx_out_idx = 0;
-         }
-#ifndef _CONSOLE
-         m_in_queue_mutex->Unlock();
-#endif
-      }
-#endif
-#ifdef USE_RTMIDI
       if(m_open)
       {
 #ifndef _CONSOLE
@@ -998,26 +770,6 @@ void MIDI::sendNoteOn(uint8_t note, uint8_t velocity)
       buffer.message = Pm_Message(0x90 + (m_channel - 1), note, velocity);
       Pm_Write(midi_out, &buffer, 1);
 #endif
-#ifdef USE_RTMIDI
-      std::vector<unsigned char> message;
-      message.push_back( 0x90 + (m_channel - 1) );
-      message.push_back( note );
-      message.push_back( velocity );
-      m_midi_out->sendMessage( &message );
-
-      try
-      {
-         m_midi_out->sendMessage( &message );
-      }
-#ifdef __MACOSX__
-      catch ( RtMidiError &error )
-#else
-      catch ( RtError &error )
-#endif
-      {
-         error.printMessage();
-      }
-#endif
 #ifdef USE_MSSMIDI
       midi_noteon(m_channel - 1, note, velocity);
 #endif
@@ -1046,26 +798,6 @@ void MIDI::sendNoteOff(uint8_t note, uint8_t velocity)
       buffer.message = Pm_Message(0x80 + (m_channel - 1), note, velocity);
       Pm_Write(midi_out, &buffer, 1);
 #endif
-#ifdef USE_RTMIDI
-      std::vector<unsigned char> message;
-      message.push_back( 0x80 + (m_channel - 1) );
-      message.push_back( note );
-      message.push_back( velocity );
-      m_midi_out->sendMessage( &message );
-
-      try
-      {
-         m_midi_out->sendMessage( &message );
-      }
-#ifdef __MACOSX__
-      catch ( RtMidiError &error ) 
-#else
-      catch ( RtError &error ) 
-#endif
-      {
-         error.printMessage();
-      }
-#endif
 #ifdef USE_MSSMIDI
       midi_noteoff(m_channel - 1, note, velocity);
 #endif
@@ -1085,30 +817,6 @@ void MIDI::sendNoteOff(uint8_t note, uint8_t velocity)
    }
 }
 
-#ifdef USE_RTMIDI
-void MIDI::inCallback( double deltatime, std::vector< unsigned char > *message, void *userData )
-{
-   unsigned int nBytes = message->size();
-#ifndef _CONSOLE
-   m_in_queue_mutex->Lock();
-#endif
-   for ( unsigned int i=0; i<nBytes; i++ )
-   {
-      if(message->at(i) != 0xff)
-      {
-         m_midi_rx_buf[m_midi_rx_in_idx] = message->at(i);
-         m_midi_rx_in_idx++;
-         if(m_midi_rx_in_idx >= MIDI_APP_BUFSIZE)
-         {
-            m_midi_rx_in_idx = 0;
-         }
-      }
-   }
-#ifndef _CONSOLE
-   m_in_queue_mutex->Unlock();
-#endif
-}
-#endif
 
 void MIDI::handler(void)
 {
@@ -1120,12 +828,21 @@ void MIDI::handler(void)
          PmEvent in_event;
          int shift;
          int count;
-         int data = 0;
          do
          {
             count = Pm_Read(midi_in, &in_event, 1);
+            if(count < 0)
+            {
+               // e.g. pmBufferOverflow: in_event holds no data
+               m_log->log("MIDI input error: %s", Pm_GetErrorText((PmError)count));
+               break;
+            }
             if(count)
             {
+              // reset for every event: otherwise the EOX of the previous message stops
+              // the loop below and the first bytes (incl. 0xf0) of the next sysex
+              // message get lost, if both are read within one call
+              int data = 0;
               /* compare 4 bytes of data until you reach an eox */
               for (shift = 0; shift < 32 && (data != MIDI_EOX); shift += 8) 
               //for (shift = 0; shift < 32; shift += 8) 

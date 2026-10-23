@@ -4,14 +4,14 @@
 //#include <wx/wupdlock.h>
 
 #ifdef __WXMAC__
-   #define MAIN_WINDOW_WIDTH 1265
+   #define MAIN_WINDOW_WIDTH 1095
    #define MAIN_WINDOW_HEIGHT 765
 #else
    #define MAIN_WINDOW_WIDTH 1015
    #define MAIN_WINDOW_HEIGHT 705
 #endif
 
-#define VERSION_STR "Version 1.4"
+#define VERSION_STR "Version 1.5b"
 
 
 class MyThread;

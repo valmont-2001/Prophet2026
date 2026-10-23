@@ -2,7 +2,6 @@
 #define __MIDIH__
 
 //#define USE_PORTMIDI     // define by preprocessor settings!
-//#define USE_RTMIDI       // define by preprocessor settings!
 //#define USE_MSSMIDI      // define by preprocessor settings!
 
 // BurstHW communication:
@@ -18,11 +17,6 @@
    #include "mss.h"
 #endif
 
-#ifdef USE_RTMIDI
-   class RtMidiOut;
-   class RtMidiIn;
-   #include "RtMidi.h"
-#endif
 
 #ifndef _CONSOLE
    class wxMutex;
@@ -49,10 +43,6 @@ public:
    map<int, int> &getOutputDeviceList(void) { return m_out_devices_map; };
 #endif
 
-#ifdef USE_RTMIDI
-   map<int, int> &getInputDeviceList(void) { return m_in_devices_map; };
-   map<int, int> &getOutputDeviceList(void) { return m_out_devices_map; };
-#endif
 
 #ifdef USE_MSSMIDI
    const list<MIDIINCAPS> &getInputDeviceList(void) const { return m_in_devices; };
@@ -101,14 +91,7 @@ public:
    void loadConfig(FILE *file);
    void saveConfig(FILE *file);
 
-#ifdef USE_RTMIDI
-   void inCallback( double deltatime, std::vector< unsigned char > *message, void *userData );
-#endif
 
-#ifdef USE_RTMIDI
-   RtMidiOut *getMIDIOutDevice(void) { return m_midi_out; };
-   RtMidiIn *getMIDIInDevice(void) { return m_midi_in; };
-#endif
 
 private:
 #ifdef USE_MSSMIDI
@@ -121,12 +104,6 @@ private:
    map<int, int> m_out_devices_map;
 #endif
 
-#ifdef USE_RTMIDI
-   map<int, int> m_in_devices_map;
-   map<int, int> m_out_devices_map;
-   RtMidiOut *m_midi_out;
-   RtMidiIn *m_midi_in;
-#endif
 
 #ifndef _CONSOLE
    wxMutex *m_in_queue_mutex;

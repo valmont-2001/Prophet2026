@@ -58,11 +58,16 @@ void EnvDisp::drawADSR(uint8_t a, uint8_t d, uint8_t s, uint8_t r, uint8_t r_2nd
 void EnvDisp::draw_smoothed_lines(wxList *points, wxMemoryDC *dc)
 {
 #ifndef __SPLINES
-#if 0 // 2do
-    dc->DrawLines(points,-1,0);
-    dc->DrawLines(points,0,0);
-    dc->DrawLines(points,0,1);
-#endif
+   if(points->size() >= 2)
+   {
+      // wx 3.x no longer accepts a wxList of wxObject*, so copy the points into an array
+      wxVector<wxPoint> pts;
+      for(wxList::iterator it = points->begin(); it != points->end(); ++it)
+         pts.push_back(*(wxPoint*)(*it));
+      dc->DrawLines(pts.size(), &pts[0], -1, 0);
+      dc->DrawLines(pts.size(), &pts[0], 0, 0);
+      dc->DrawLines(pts.size(), &pts[0], 0, 1);
+   }
 #else
    if(points->size() >= 2) // draw spline only if there are at least 2 points to draw (otherwise crash!)
    {

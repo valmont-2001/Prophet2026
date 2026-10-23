@@ -11,3 +11,5 @@ The entire GUI of the editor is based on wxWidgets-2.8.12. The GUI layout had be
 Some parts were for testing purposes and have not been part in the released versions. So there is not really something cleaned up so far and I am going to provide everything as is.
 
 I am releasing this software under the license in order you have to release any changes as open source again. So further releases must be in addition free of any charge. No paywalls or payments for this software or final product are allowed.
+
+Build instructions for macOS: see [Install_MacOS.md](Install_MacOS.md).

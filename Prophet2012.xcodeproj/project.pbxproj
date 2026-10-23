@@ -1,0 +1,827 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		B21838252122D60364098BED /* ThirdParty */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 121AEAB9BADFD7D7A1078C03 /* Build configuration list for PBXAggregateTarget "ThirdParty" */;
+			buildPhases = (
+				CB7A721AD1C0DBC3F4161261 /* Build third party libraries */,
+			);
+			dependencies = (
+			);
+			name = ThirdParty;
+			packageProductDependencies = (
+			);
+			productName = ThirdParty;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		00F57C24B3FEE7D68A5F6AF9 /* dadsr.c in Sources */ = {isa = PBXBuildFile; fileRef = 93F7381937014B411FEEA7D1 /* dadsr.c */; };
+		034700B298EE486E75E2F91A /* soundcopydlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85BAD7867A2785772BCC55B1 /* soundcopydlg.cpp */; };
+		04BD1091375D88D508E20C11 /* envdispobj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2918D461AA8ADB021B10CC69 /* envdispobj.cpp */; };
+		0670278E6ED5FAE01F1ED8EA /* cfgdlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC5890555FAF7B90A981ACC4 /* cfgdlg.cpp */; };
+		08C9EB2CBD9E41B76A274800 /* dco.c in Sources */ = {isa = PBXBuildFile; fileRef = 462DD2C0261F3D1C68B0EBD7 /* dco.c */; };
+		0C3C972822D6977781B53A96 /* presetpanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A64E53D1D636C7BB3E03855 /* presetpanel.cpp */; };
+		0F93C98211EE166A81408D62 /* about.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5452DC69037A0D63B919818D /* about.cpp */; };
+		10647D7EBC2CD0031A59FBF6 /* midikeyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 477BD00FC91EA6C054D2B4CE /* midikeyboard.cpp */; };
+		11A131006DBA87735FA430A6 /* mappanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 554FC6D21206255D3D865C7D /* mappanel.cpp */; };
+		122BFBB6AF92C2DBF619029A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80DC993C79DB1B54E814A23A /* IOKit.framework */; };
+		15DCCEA1758AB39AEDDAFBF1 /* midikeyboarddlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F2F1EE1FD2C8E83D9B9BEE26 /* midikeyboarddlg.cpp */; };
+		16BCE35C7BF74DE5DF9613C0 /* presetparam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D889F088D209491D1DA225A /* presetparam.cpp */; };
+		1752E412A233BC19BA50A678 /* synmodel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 729AF18DE19CD9F83DFB1645 /* synmodel.cpp */; };
+		1FC89B43A69783FFDEB2DCAB /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B6D74063C5ADE27C05C76E /* AudioUnit.framework */; };
+		22ECCDECEBCDE06D3112638E /* soundfont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08B88FAAD92B7FA029C6A00D /* soundfont.cpp */; };
+		246A44B748B7C5CDE9BFDCB8 /* proph2000.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9973E968F8E278662453AFB9 /* proph2000.cpp */; };
+		2E761900D2CB91CCD1A30578 /* Logo.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 3D0904B097F15020C4672C02 /* Logo.bmp */; };
+		31D556555DF65789305CAA4C /* soundfontsample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDEC87567A11305AAA65285B /* soundfontsample.cpp */; };
+		31EAD27D99AF724DEBB9D07F /* midi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6402DA721FDD3FAFD07846C5 /* midi.cpp */; };
+		355CCDB01A59B41A1708AAD2 /* soundsamplepanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5B789E32CC1318A0449DE29 /* soundsamplepanel.cpp */; };
+		3A3283540EC3E0DD5FD62B3B /* wave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC577BEFF05DA82218E0DB /* wave.cpp */; };
+		3DBB282618909F131D5EF601 /* soundselection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAC55BCBA81C32F6698C43D6 /* soundselection.cpp */; };
+		3F7398008F5FD5E608D02058 /* samples.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58F325F8D84BCF6F803B4727 /* samples.cpp */; };
+		49FC08B531F6710493E6A16C /* soundkeyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB1D90B580415CF3C09F4E2A /* soundkeyboard.cpp */; };
+		4C13D2D7B516F280A278FE90 /* envdisp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55CC210CA559CF06BA2341DA /* envdisp.cpp */; };
+		4C3625460F7FDBBC7392B6E6 /* presetcopydlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEF69EE1218434CFB476B08 /* presetcopydlg.cpp */; };
+		4FD10B6A95D0C5EED49B2F0E /* logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 947501A4EC9B7607558C109E /* logger.cpp */; };
+		507FA2D38EF9834B22648FB9 /* clickarea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BCAB169E094E16A0A5DD63B /* clickarea.cpp */; };
+		55C8060437BD46CA0092B1C2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5650D196F550570A205950D2 /* QuartzCore.framework */; };
+		5ACCDCA222DC607BCEC18607 /* mapscaledvaldlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02E04DB5E65C0EF05F0DBDEF /* mapscaledvaldlg.cpp */; };
+		6A25B6771BA6CFBD497F72FC /* loadsample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EF3EC624134692AA5098874 /* loadsample.cpp */; };
+		73E8A53E3EBDFDB5CE419839 /* wavekeyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9FC68B9559721AC2F29AC2 /* wavekeyboard.cpp */; };
+		75C808C700CA6CCE7BDE1A0D /* macstyle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 34791D1D6C2F8B0896D5D9A0 /* macstyle.mm */; };
+		791054D1695B95F86AEAFBA0 /* synthengine.c in Sources */ = {isa = PBXBuildFile; fileRef = 78F7CA2993A2FA1C93F9477B /* synthengine.c */; };
+		7CAE4EFFA23DF4BB502FA24A /* stopwatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84EBB1EDC179A5C92C05C2E0 /* stopwatch.cpp */; };
+		7CF599F75B714C970B19D8C5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E942D697058B8AEEBF5D36 /* AudioToolbox.framework */; };
+		85C3232C8E0CB849FB470B47 /* notetext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35A8CFD3812B1C79B5A6E003 /* notetext.cpp */; };
+		8AA2AD8F32724F2B04EB5679 /* mapkeyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FECD1967225B48666179CFB /* mapkeyboard.cpp */; };
+		910615115EBDA5D0B6D3F098 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A4F3B8024338F781BAD450 /* CoreMIDI.framework */; };
+		9141BAC6ECED12BD8D87B4D0 /* soundsynthpanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FE897EDF9E32B0FDDAF69EA /* soundsynthpanel.cpp */; };
+		A156E4485AD88C5D6EE52FFB /* wavedisp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA418850E00986BA459E7958 /* wavedisp.cpp */; };
+		A1CE1879B56D5B7F43CB48D5 /* soundparam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FB53C09C8EAA22CFF25BC69 /* soundparam.cpp */; };
+		A70218A546682AE1E00343CD /* midikeypresetsel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43729B72856517375D4D291C /* midikeypresetsel.cpp */; };
+		A879D277666F55D01B155592 /* dcoset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71FCFAFDD9FBCA0FDD4EC007 /* dcoset.cpp */; };
+		AC1694A7D3516037EE518E6E /* presetkeyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37D54A849EBB1EBF16BA7295 /* presetkeyboard.cpp */; };
+		BE256B641B89B2A72E9E5243 /* audio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 705CAE38EA20C4A93EE57D78 /* audio.cpp */; };
+		C31EE34482DEB718321D861F /* freqlookup.c in Sources */ = {isa = PBXBuildFile; fileRef = 88B1EE64B65F6F869CC140E5 /* freqlookup.c */; };
+		C4AA9A0AF613925D52A8F7CB /* midithread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD532369F0F3F0F76CA9673C /* midithread.cpp */; };
+		C8FAC13EBE7E6B8A8464EFC4 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA53FEA069B9D4415FBB8E1 /* CoreAudio.framework */; };
+		D0324E0F10B35340DEC15198 /* keyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36CC5278716027096BA74F2B /* keyboard.cpp */; };
+		DA3FA6D9861ED38E4F662882 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CC71383072003077816815 /* Cocoa.framework */; };
+		DD79E44DDD81FF97A704F2AD /* GUILayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DA0FF17C0F36C9521C0D3CE /* GUILayout.cpp */; };
+		DEEC4656EF1A60B5EBA84F10 /* mapparam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7F98E8BE7AD9DD4A536C0A7 /* mapparam.cpp */; };
+		E2F73FF3C29A05FB0E3A48C7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B48FA082F6823D90FC13914 /* main.cpp */; };
+		E3D5AEBBC6F2283BA0F17271 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E588A4A5CC99EA0D688D17 /* CoreServices.framework */; };
+		E89B51B8A092F66333D09F7E /* wavegen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 287243CC83652339AC039927 /* wavegen.cpp */; };
+		E8F97C3E1D26334A1C18B893 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7A85B25EB47C5B2814886E /* Carbon.framework */; };
+		EC46947811C6D8401D119D06 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C74E2548D931CD01CB3C2755 /* Security.framework */; };
+		F2B18774C7BC1D9A87531638 /* soundlooppanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4942C61C3FAA96FFDB1639B9 /* soundlooppanel.cpp */; };
+		FAE07206510E2BA4A7AB046B /* thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6114CDBF8091F0EEC14455B /* thread.cpp */; };
+		FB2D682913C75807C3E232F9 /* mapcopydlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE6B7B99D32F16436FFBEDD0 /* mapcopydlg.cpp */; };
+		FF0EC53660E9405995B1CF4D /* noise.c in Sources */ = {isa = PBXBuildFile; fileRef = 921F04CA44D203F2EC22EB98 /* noise.c */; };
+		FF9ADD99DB888EBDA93BDC37 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9EB42B005B0C973C6D1D561 /* OpenGL.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF4901B7A1AC48770384485B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72E59D91CC4A62788F4C0DB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B21838252122D60364098BED;
+			remoteInfo = ThirdParty;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02E04DB5E65C0EF05F0DBDEF /* mapscaledvaldlg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mapscaledvaldlg.cpp; sourceTree = "<group>"; };
+		08B88FAAD92B7FA029C6A00D /* soundfont.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = soundfont.cpp; sourceTree = "<group>"; };
+		0BCAB169E094E16A0A5DD63B /* clickarea.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = clickarea.cpp; sourceTree = "<group>"; };
+		0E5B1856701A8EBDBA117CBA /* midikeypresetsel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = midikeypresetsel.h; sourceTree = "<group>"; };
+		0FE897EDF9E32B0FDDAF69EA /* soundsynthpanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = soundsynthpanel.cpp; sourceTree = "<group>"; };
+		14DDE0409855CD53C2D80194 /* mappanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mappanel.h; sourceTree = "<group>"; };
+		1B48FA082F6823D90FC13914 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1E8B7E9D3EE87982CEC1DA7C /* wave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wave.h; sourceTree = "<group>"; };
+		2126980617DCD2174370E2B9 /* mapkeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mapkeyboard.h; sourceTree = "<group>"; };
+		21E588A4A5CC99EA0D688D17 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		263EF2135D32B587A8497CC6 /* wavegen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wavegen.h; sourceTree = "<group>"; };
+		2717DE9355890CBF81BF7BE7 /* proph2000.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = proph2000.h; sourceTree = "<group>"; };
+		27E5840BE6880A65C808E633 /* midikeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = midikeyboard.h; sourceTree = "<group>"; };
+		287243CC83652339AC039927 /* wavegen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wavegen.cpp; sourceTree = "<group>"; };
+		2918D461AA8ADB021B10CC69 /* envdispobj.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = envdispobj.cpp; sourceTree = "<group>"; };
+		2EF3EC624134692AA5098874 /* loadsample.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = loadsample.cpp; sourceTree = "<group>"; };
+		2FECD1967225B48666179CFB /* mapkeyboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mapkeyboard.cpp; sourceTree = "<group>"; };
+		3005D7F7C632FCD801380008 /* notetext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notetext.h; sourceTree = "<group>"; };
+		333A78B570076F1790A131B9 /* stopwatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stopwatch.h; sourceTree = "<group>"; };
+		34791D1D6C2F8B0896D5D9A0 /* macstyle.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = macstyle.mm; sourceTree = "<group>"; };
+		35A8CFD3812B1C79B5A6E003 /* notetext.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = notetext.cpp; sourceTree = "<group>"; };
+		36CC5278716027096BA74F2B /* keyboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = keyboard.cpp; sourceTree = "<group>"; };
+		37D54A849EBB1EBF16BA7295 /* presetkeyboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = presetkeyboard.cpp; sourceTree = "<group>"; };
+		3BBC577BEFF05DA82218E0DB /* wave.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wave.cpp; sourceTree = "<group>"; };
+		3D0904B097F15020C4672C02 /* Logo.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = Logo.bmp; sourceTree = "<group>"; };
+		3FE4A265252917F07273DD80 /* soundlooppanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = soundlooppanel.h; sourceTree = "<group>"; };
+		42D2C476996E71AAF7A868DB /* noise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = noise.h; sourceTree = "<group>"; };
+		43729B72856517375D4D291C /* midikeypresetsel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = midikeypresetsel.cpp; sourceTree = "<group>"; };
+		462DD2C0261F3D1C68B0EBD7 /* dco.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dco.c; sourceTree = "<group>"; };
+		464F8FF70730B95EB9C1D49E /* presetcopydlg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = presetcopydlg.h; sourceTree = "<group>"; };
+		477BD00FC91EA6C054D2B4CE /* midikeyboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = midikeyboard.cpp; sourceTree = "<group>"; };
+		4942C61C3FAA96FFDB1639B9 /* soundlooppanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = soundlooppanel.cpp; sourceTree = "<group>"; };
+		5452DC69037A0D63B919818D /* about.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = about.cpp; sourceTree = "<group>"; };
+		554FC6D21206255D3D865C7D /* mappanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mappanel.cpp; sourceTree = "<group>"; };
+		55CC210CA559CF06BA2341DA /* envdisp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = envdisp.cpp; sourceTree = "<group>"; };
+		5650D196F550570A205950D2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		58F325F8D84BCF6F803B4727 /* samples.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = samples.cpp; sourceTree = "<group>"; };
+		5D492A14A8003D6F4898BA64 /* mapscaledvaldlg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mapscaledvaldlg.h; sourceTree = "<group>"; };
+		5FB53C09C8EAA22CFF25BC69 /* soundparam.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = soundparam.cpp; sourceTree = "<group>"; };
+		6402DA721FDD3FAFD07846C5 /* midi.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = midi.cpp; sourceTree = "<group>"; };
+		6747B591E1CFA477513F236E /* midikeyboarddlg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = midikeyboarddlg.h; sourceTree = "<group>"; };
+		68815FBD72A98BB4BB5B35B5 /* thread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thread.h; sourceTree = "<group>"; };
+		6A64E53D1D636C7BB3E03855 /* presetpanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = presetpanel.cpp; sourceTree = "<group>"; };
+		705CAE38EA20C4A93EE57D78 /* audio.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = audio.cpp; sourceTree = "<group>"; };
+		71FCFAFDD9FBCA0FDD4EC007 /* dcoset.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dcoset.cpp; sourceTree = "<group>"; };
+		729AF18DE19CD9F83DFB1645 /* synmodel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = synmodel.cpp; sourceTree = "<group>"; };
+		78F7CA2993A2FA1C93F9477B /* synthengine.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = synthengine.c; sourceTree = "<group>"; };
+		7A122004486EF3987BA1A1F8 /* types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		7AB4467E320765617057922B /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		7BEF69EE1218434CFB476B08 /* presetcopydlg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = presetcopydlg.cpp; sourceTree = "<group>"; };
+		7D34F22207DFBE389804C0C4 /* midithread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = midithread.h; sourceTree = "<group>"; };
+		7D8D028F9AAADE11CB4AFC5E /* soundkeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = soundkeyboard.h; sourceTree = "<group>"; };
+		7DA0FF17C0F36C9521C0D3CE /* GUILayout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GUILayout.cpp; sourceTree = "<group>"; };
+		80DC993C79DB1B54E814A23A /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		82FDA20136806BA422370348 /* presetpanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = presetpanel.h; sourceTree = "<group>"; };
+		84EBB1EDC179A5C92C05C2E0 /* stopwatch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stopwatch.cpp; sourceTree = "<group>"; };
+		85BAD7867A2785772BCC55B1 /* soundcopydlg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = soundcopydlg.cpp; sourceTree = "<group>"; };
+		88B1EE64B65F6F869CC140E5 /* freqlookup.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = freqlookup.c; sourceTree = "<group>"; };
+		8B34128AF87832EAC8AF8081 /* envdisp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = envdisp.h; sourceTree = "<group>"; };
+		8D889F088D209491D1DA225A /* presetparam.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = presetparam.cpp; sourceTree = "<group>"; };
+		921F04CA44D203F2EC22EB98 /* noise.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = noise.c; sourceTree = "<group>"; };
+		93B6D74063C5ADE27C05C76E /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		93F7381937014B411FEEA7D1 /* dadsr.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dadsr.c; sourceTree = "<group>"; };
+		947501A4EC9B7607558C109E /* logger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = logger.cpp; sourceTree = "<group>"; };
+		94EEB11FBDAFC21B77E6F5E2 /* soundsynthpanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = soundsynthpanel.h; sourceTree = "<group>"; };
+		9973E968F8E278662453AFB9 /* proph2000.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = proph2000.cpp; sourceTree = "<group>"; };
+		99AF7667935ACA39E97D3FDB /* mapcopydlg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mapcopydlg.h; sourceTree = "<group>"; };
+		99B33E73C8198DAD91207637 /* wavedisp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wavedisp.h; sourceTree = "<group>"; };
+		9C17C89F23635DD756D9535E /* freqlookup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = freqlookup.h; sourceTree = "<group>"; };
+		9F46464C4C98AAB58027E468 /* logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = logger.h; sourceTree = "<group>"; };
+		A0A4F3B8024338F781BAD450 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		A4488CB00EA68CBE0B7CFDC1 /* clickarea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = clickarea.h; sourceTree = "<group>"; };
+		A528B8B0926E146AE38AE6EA /* about.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = about.h; sourceTree = "<group>"; };
+		AA418850E00986BA459E7958 /* wavedisp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wavedisp.cpp; sourceTree = "<group>"; };
+		AA61996D0512AAE6DE5BA52B /* soundsamplepanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = soundsamplepanel.h; sourceTree = "<group>"; };
+		B09E520A8EF9C4AD94EF5227 /* loadsample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = loadsample.h; sourceTree = "<group>"; };
+		B20F47C8A29478BA062DC629 /* Prophet2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prophet2012.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4067DA8E99D1D7E86F4A784 /* wavekeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wavekeyboard.h; sourceTree = "<group>"; };
+		B6114CDBF8091F0EEC14455B /* thread.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = thread.cpp; sourceTree = "<group>"; };
+		B6E0DDC305ACAA822C7F4101 /* soundfontsample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = soundfontsample.h; sourceTree = "<group>"; };
+		BB7A85B25EB47C5B2814886E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		BBA53FEA069B9D4415FBB8E1 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		BD532369F0F3F0F76CA9673C /* midithread.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = midithread.cpp; sourceTree = "<group>"; };
+		BD9FC68B9559721AC2F29AC2 /* wavekeyboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wavekeyboard.cpp; sourceTree = "<group>"; };
+		BDB3D7505D0C3A491F97D2F1 /* macstyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = macstyle.h; sourceTree = "<group>"; };
+		BDEC87567A11305AAA65285B /* soundfontsample.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = soundfontsample.cpp; sourceTree = "<group>"; };
+		BEF8BB263E70A21395D5EA55 /* presetkeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = presetkeyboard.h; sourceTree = "<group>"; };
+		BF2265A9201F13899CFB43D1 /* synmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = synmodel.h; sourceTree = "<group>"; };
+		C08F044A810DE82042B0B5DA /* samples.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = samples.h; sourceTree = "<group>"; };
+		C47D49D5BA4A6102664D763E /* GUILayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GUILayout.h; sourceTree = "<group>"; };
+		C5B789E32CC1318A0449DE29 /* soundsamplepanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = soundsamplepanel.cpp; sourceTree = "<group>"; };
+		C6C350131FEC11E0DB95DFAD /* synthengine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = synthengine.h; sourceTree = "<group>"; };
+		C74E2548D931CD01CB3C2755 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C7E942D697058B8AEEBF5D36 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CE6B7B99D32F16436FFBEDD0 /* mapcopydlg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mapcopydlg.cpp; sourceTree = "<group>"; };
+		D36C191A4C4A52055A61F98C /* dcoset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dcoset.h; sourceTree = "<group>"; };
+		DE4B87091AD38A2007E34026 /* soundparam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = soundparam.h; sourceTree = "<group>"; };
+		E3EBE754A49661AE17A03711 /* audio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = audio.h; sourceTree = "<group>"; };
+		E56E50D6B23B4FD1225D6B76 /* soundcopydlg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = soundcopydlg.h; sourceTree = "<group>"; };
+		E6CC71383072003077816815 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		E9516DC139B159E5424AF58D /* presetparam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = presetparam.h; sourceTree = "<group>"; };
+		E9EB42B005B0C973C6D1D561 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		EAC55BCBA81C32F6698C43D6 /* soundselection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = soundselection.cpp; sourceTree = "<group>"; };
+		ECE9E748A753C18A1B447EF7 /* keyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keyboard.h; sourceTree = "<group>"; };
+		EF0956C1A8812D0DB01F5849 /* cfgdlg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cfgdlg.h; sourceTree = "<group>"; };
+		F1960A9189AE68586AE51348 /* soundselection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = soundselection.h; sourceTree = "<group>"; };
+		F2F1EE1FD2C8E83D9B9BEE26 /* midikeyboarddlg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = midikeyboarddlg.cpp; sourceTree = "<group>"; };
+		F36A441B9230F21DD8D5D165 /* mapparam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mapparam.h; sourceTree = "<group>"; };
+		F608556C935E9D50968E99B9 /* envdispobj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = envdispobj.h; sourceTree = "<group>"; };
+		F703747BB0E43134E0EEE140 /* dco.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dco.h; sourceTree = "<group>"; };
+		F7F98E8BE7AD9DD4A536C0A7 /* mapparam.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mapparam.cpp; sourceTree = "<group>"; };
+		F9FDBB90E7BEC4F6F954D16F /* midi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = midi.h; sourceTree = "<group>"; };
+		FA433B93A720B51FF176A135 /* wavegenconfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wavegenconfig.h; sourceTree = "<group>"; };
+		FB1D90B580415CF3C09F4E2A /* soundkeyboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = soundkeyboard.cpp; sourceTree = "<group>"; };
+		FBBEAC2A4256CADC1ECF07C2 /* dadsr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dadsr.h; sourceTree = "<group>"; };
+		FC5890555FAF7B90A981ACC4 /* cfgdlg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cfgdlg.cpp; sourceTree = "<group>"; };
+		FF0EB4FCF5276FAAC9A11AFB /* soundfont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = soundfont.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		629D8D1A4BE6ADCADE1BD2AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8FAC13EBE7E6B8A8464EFC4 /* CoreAudio.framework in Frameworks */,
+				7CF599F75B714C970B19D8C5 /* AudioToolbox.framework in Frameworks */,
+				1FC89B43A69783FFDEB2DCAB /* AudioUnit.framework in Frameworks */,
+				910615115EBDA5D0B6D3F098 /* CoreMIDI.framework in Frameworks */,
+				E3D5AEBBC6F2283BA0F17271 /* CoreServices.framework in Frameworks */,
+				122BFBB6AF92C2DBF619029A /* IOKit.framework in Frameworks */,
+				E8F97C3E1D26334A1C18B893 /* Carbon.framework in Frameworks */,
+				DA3FA6D9861ED38E4F662882 /* Cocoa.framework in Frameworks */,
+				55C8060437BD46CA0092B1C2 /* QuartzCore.framework in Frameworks */,
+				EC46947811C6D8401D119D06 /* Security.framework in Frameworks */,
+				FF9ADD99DB888EBDA93BDC37 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		12CA71C8DCF64C86050D51AF /* wavegen */ = {
+			isa = PBXGroup;
+			children = (
+				93F7381937014B411FEEA7D1 /* dadsr.c */,
+				FBBEAC2A4256CADC1ECF07C2 /* dadsr.h */,
+				462DD2C0261F3D1C68B0EBD7 /* dco.c */,
+				F703747BB0E43134E0EEE140 /* dco.h */,
+				71FCFAFDD9FBCA0FDD4EC007 /* dcoset.cpp */,
+				D36C191A4C4A52055A61F98C /* dcoset.h */,
+				88B1EE64B65F6F869CC140E5 /* freqlookup.c */,
+				9C17C89F23635DD756D9535E /* freqlookup.h */,
+				921F04CA44D203F2EC22EB98 /* noise.c */,
+				42D2C476996E71AAF7A868DB /* noise.h */,
+				729AF18DE19CD9F83DFB1645 /* synmodel.cpp */,
+				BF2265A9201F13899CFB43D1 /* synmodel.h */,
+				78F7CA2993A2FA1C93F9477B /* synthengine.c */,
+				C6C350131FEC11E0DB95DFAD /* synthengine.h */,
+				287243CC83652339AC039927 /* wavegen.cpp */,
+				263EF2135D32B587A8497CC6 /* wavegen.h */,
+				FA433B93A720B51FF176A135 /* wavegenconfig.h */,
+				BD9FC68B9559721AC2F29AC2 /* wavekeyboard.cpp */,
+				B4067DA8E99D1D7E86F4A784 /* wavekeyboard.h */,
+			);
+			path = wavegen;
+			sourceTree = "<group>";
+		};
+		383CDA45505B7272ECF0A63D = {
+			isa = PBXGroup;
+			children = (
+				54F0D85ED045682D55E78EF1 /* SRCDIR */,
+				8324914F618EA5700CE2EFD9 /* Frameworks */,
+				BBC78BCC1DDD37C896468130 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		54F0D85ED045682D55E78EF1 /* SRCDIR */ = {
+			isa = PBXGroup;
+			children = (
+				5452DC69037A0D63B919818D /* about.cpp */,
+				A528B8B0926E146AE38AE6EA /* about.h */,
+				705CAE38EA20C4A93EE57D78 /* audio.cpp */,
+				E3EBE754A49661AE17A03711 /* audio.h */,
+				FC5890555FAF7B90A981ACC4 /* cfgdlg.cpp */,
+				EF0956C1A8812D0DB01F5849 /* cfgdlg.h */,
+				0BCAB169E094E16A0A5DD63B /* clickarea.cpp */,
+				A4488CB00EA68CBE0B7CFDC1 /* clickarea.h */,
+				55CC210CA559CF06BA2341DA /* envdisp.cpp */,
+				8B34128AF87832EAC8AF8081 /* envdisp.h */,
+				2918D461AA8ADB021B10CC69 /* envdispobj.cpp */,
+				F608556C935E9D50968E99B9 /* envdispobj.h */,
+				7DA0FF17C0F36C9521C0D3CE /* GUILayout.cpp */,
+				C47D49D5BA4A6102664D763E /* GUILayout.h */,
+				36CC5278716027096BA74F2B /* keyboard.cpp */,
+				ECE9E748A753C18A1B447EF7 /* keyboard.h */,
+				2EF3EC624134692AA5098874 /* loadsample.cpp */,
+				B09E520A8EF9C4AD94EF5227 /* loadsample.h */,
+				947501A4EC9B7607558C109E /* logger.cpp */,
+				9F46464C4C98AAB58027E468 /* logger.h */,
+				3D0904B097F15020C4672C02 /* Logo.bmp */,
+				BDB3D7505D0C3A491F97D2F1 /* macstyle.h */,
+				34791D1D6C2F8B0896D5D9A0 /* macstyle.mm */,
+				1B48FA082F6823D90FC13914 /* main.cpp */,
+				7AB4467E320765617057922B /* main.h */,
+				CE6B7B99D32F16436FFBEDD0 /* mapcopydlg.cpp */,
+				99AF7667935ACA39E97D3FDB /* mapcopydlg.h */,
+				2FECD1967225B48666179CFB /* mapkeyboard.cpp */,
+				2126980617DCD2174370E2B9 /* mapkeyboard.h */,
+				554FC6D21206255D3D865C7D /* mappanel.cpp */,
+				14DDE0409855CD53C2D80194 /* mappanel.h */,
+				F7F98E8BE7AD9DD4A536C0A7 /* mapparam.cpp */,
+				F36A441B9230F21DD8D5D165 /* mapparam.h */,
+				02E04DB5E65C0EF05F0DBDEF /* mapscaledvaldlg.cpp */,
+				5D492A14A8003D6F4898BA64 /* mapscaledvaldlg.h */,
+				6402DA721FDD3FAFD07846C5 /* midi.cpp */,
+				F9FDBB90E7BEC4F6F954D16F /* midi.h */,
+				477BD00FC91EA6C054D2B4CE /* midikeyboard.cpp */,
+				27E5840BE6880A65C808E633 /* midikeyboard.h */,
+				F2F1EE1FD2C8E83D9B9BEE26 /* midikeyboarddlg.cpp */,
+				6747B591E1CFA477513F236E /* midikeyboarddlg.h */,
+				43729B72856517375D4D291C /* midikeypresetsel.cpp */,
+				0E5B1856701A8EBDBA117CBA /* midikeypresetsel.h */,
+				BD532369F0F3F0F76CA9673C /* midithread.cpp */,
+				7D34F22207DFBE389804C0C4 /* midithread.h */,
+				35A8CFD3812B1C79B5A6E003 /* notetext.cpp */,
+				3005D7F7C632FCD801380008 /* notetext.h */,
+				7BEF69EE1218434CFB476B08 /* presetcopydlg.cpp */,
+				464F8FF70730B95EB9C1D49E /* presetcopydlg.h */,
+				37D54A849EBB1EBF16BA7295 /* presetkeyboard.cpp */,
+				BEF8BB263E70A21395D5EA55 /* presetkeyboard.h */,
+				6A64E53D1D636C7BB3E03855 /* presetpanel.cpp */,
+				82FDA20136806BA422370348 /* presetpanel.h */,
+				8D889F088D209491D1DA225A /* presetparam.cpp */,
+				E9516DC139B159E5424AF58D /* presetparam.h */,
+				9973E968F8E278662453AFB9 /* proph2000.cpp */,
+				2717DE9355890CBF81BF7BE7 /* proph2000.h */,
+				58F325F8D84BCF6F803B4727 /* samples.cpp */,
+				C08F044A810DE82042B0B5DA /* samples.h */,
+				85BAD7867A2785772BCC55B1 /* soundcopydlg.cpp */,
+				E56E50D6B23B4FD1225D6B76 /* soundcopydlg.h */,
+				08B88FAAD92B7FA029C6A00D /* soundfont.cpp */,
+				FF0EB4FCF5276FAAC9A11AFB /* soundfont.h */,
+				BDEC87567A11305AAA65285B /* soundfontsample.cpp */,
+				B6E0DDC305ACAA822C7F4101 /* soundfontsample.h */,
+				FB1D90B580415CF3C09F4E2A /* soundkeyboard.cpp */,
+				7D8D028F9AAADE11CB4AFC5E /* soundkeyboard.h */,
+				4942C61C3FAA96FFDB1639B9 /* soundlooppanel.cpp */,
+				3FE4A265252917F07273DD80 /* soundlooppanel.h */,
+				5FB53C09C8EAA22CFF25BC69 /* soundparam.cpp */,
+				DE4B87091AD38A2007E34026 /* soundparam.h */,
+				C5B789E32CC1318A0449DE29 /* soundsamplepanel.cpp */,
+				AA61996D0512AAE6DE5BA52B /* soundsamplepanel.h */,
+				EAC55BCBA81C32F6698C43D6 /* soundselection.cpp */,
+				F1960A9189AE68586AE51348 /* soundselection.h */,
+				0FE897EDF9E32B0FDDAF69EA /* soundsynthpanel.cpp */,
+				94EEB11FBDAFC21B77E6F5E2 /* soundsynthpanel.h */,
+				84EBB1EDC179A5C92C05C2E0 /* stopwatch.cpp */,
+				333A78B570076F1790A131B9 /* stopwatch.h */,
+				B6114CDBF8091F0EEC14455B /* thread.cpp */,
+				68815FBD72A98BB4BB5B35B5 /* thread.h */,
+				7A122004486EF3987BA1A1F8 /* types.h */,
+				3BBC577BEFF05DA82218E0DB /* wave.cpp */,
+				1E8B7E9D3EE87982CEC1DA7C /* wave.h */,
+				AA418850E00986BA459E7958 /* wavedisp.cpp */,
+				99B33E73C8198DAD91207637 /* wavedisp.h */,
+				12CA71C8DCF64C86050D51AF /* wavegen */,
+			);
+			path = SRCDIR;
+			sourceTree = "<group>";
+		};
+		8324914F618EA5700CE2EFD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7E942D697058B8AEEBF5D36 /* AudioToolbox.framework */,
+				93B6D74063C5ADE27C05C76E /* AudioUnit.framework */,
+				BB7A85B25EB47C5B2814886E /* Carbon.framework */,
+				E6CC71383072003077816815 /* Cocoa.framework */,
+				BBA53FEA069B9D4415FBB8E1 /* CoreAudio.framework */,
+				A0A4F3B8024338F781BAD450 /* CoreMIDI.framework */,
+				21E588A4A5CC99EA0D688D17 /* CoreServices.framework */,
+				80DC993C79DB1B54E814A23A /* IOKit.framework */,
+				E9EB42B005B0C973C6D1D561 /* OpenGL.framework */,
+				5650D196F550570A205950D2 /* QuartzCore.framework */,
+				C74E2548D931CD01CB3C2755 /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BBC78BCC1DDD37C896468130 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B20F47C8A29478BA062DC629 /* Prophet2012.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6CDA360153C748D7CC33F6A9 /* Prophet2012 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC7F1FA3CFC2175D6E98A5F1 /* Build configuration list for PBXNativeTarget "Prophet2012" */;
+			buildPhases = (
+				EC4A6D227907F9E94D0E5E0D /* Sources */,
+				F9145C4BACED53EB5A49904E /* Resources */,
+				629D8D1A4BE6ADCADE1BD2AE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D41DA71428E7492788BC974 /* PBXTargetDependency */,
+			);
+			name = Prophet2012;
+			packageProductDependencies = (
+			);
+			productName = Prophet2012;
+			productReference = B20F47C8A29478BA062DC629 /* Prophet2012.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		72E59D91CC4A62788F4C0DB3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 7B6C054593064833660FFFE7 /* Build configuration list for PBXProject "Prophet2012" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 383CDA45505B7272ECF0A63D;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = BBC78BCC1DDD37C896468130 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6CDA360153C748D7CC33F6A9 /* Prophet2012 */,
+				B21838252122D60364098BED /* ThirdParty */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F9145C4BACED53EB5A49904E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E761900D2CB91CCD1A30578 /* Logo.bmp in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CB7A721AD1C0DBC3F4161261 /* Build third party libraries */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/scripts/build-thirdparty-mac.sh",
+			);
+			name = "Build third party libraries";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/ThirdParty/install/.built-all",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SRCROOT/scripts/build-thirdparty-mac.sh\"";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC4A6D227907F9E94D0E5E0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD79E44DDD81FF97A704F2AD /* GUILayout.cpp in Sources */,
+				0F93C98211EE166A81408D62 /* about.cpp in Sources */,
+				BE256B641B89B2A72E9E5243 /* audio.cpp in Sources */,
+				0670278E6ED5FAE01F1ED8EA /* cfgdlg.cpp in Sources */,
+				507FA2D38EF9834B22648FB9 /* clickarea.cpp in Sources */,
+				00F57C24B3FEE7D68A5F6AF9 /* dadsr.c in Sources */,
+				08C9EB2CBD9E41B76A274800 /* dco.c in Sources */,
+				A879D277666F55D01B155592 /* dcoset.cpp in Sources */,
+				4C13D2D7B516F280A278FE90 /* envdisp.cpp in Sources */,
+				04BD1091375D88D508E20C11 /* envdispobj.cpp in Sources */,
+				C31EE34482DEB718321D861F /* freqlookup.c in Sources */,
+				D0324E0F10B35340DEC15198 /* keyboard.cpp in Sources */,
+				6A25B6771BA6CFBD497F72FC /* loadsample.cpp in Sources */,
+				4FD10B6A95D0C5EED49B2F0E /* logger.cpp in Sources */,
+				75C808C700CA6CCE7BDE1A0D /* macstyle.mm in Sources */,
+				E2F73FF3C29A05FB0E3A48C7 /* main.cpp in Sources */,
+				FB2D682913C75807C3E232F9 /* mapcopydlg.cpp in Sources */,
+				8AA2AD8F32724F2B04EB5679 /* mapkeyboard.cpp in Sources */,
+				11A131006DBA87735FA430A6 /* mappanel.cpp in Sources */,
+				DEEC4656EF1A60B5EBA84F10 /* mapparam.cpp in Sources */,
+				5ACCDCA222DC607BCEC18607 /* mapscaledvaldlg.cpp in Sources */,
+				31EAD27D99AF724DEBB9D07F /* midi.cpp in Sources */,
+				10647D7EBC2CD0031A59FBF6 /* midikeyboard.cpp in Sources */,
+				15DCCEA1758AB39AEDDAFBF1 /* midikeyboarddlg.cpp in Sources */,
+				A70218A546682AE1E00343CD /* midikeypresetsel.cpp in Sources */,
+				C4AA9A0AF613925D52A8F7CB /* midithread.cpp in Sources */,
+				FF0EC53660E9405995B1CF4D /* noise.c in Sources */,
+				85C3232C8E0CB849FB470B47 /* notetext.cpp in Sources */,
+				4C3625460F7FDBBC7392B6E6 /* presetcopydlg.cpp in Sources */,
+				AC1694A7D3516037EE518E6E /* presetkeyboard.cpp in Sources */,
+				0C3C972822D6977781B53A96 /* presetpanel.cpp in Sources */,
+				16BCE35C7BF74DE5DF9613C0 /* presetparam.cpp in Sources */,
+				246A44B748B7C5CDE9BFDCB8 /* proph2000.cpp in Sources */,
+				3F7398008F5FD5E608D02058 /* samples.cpp in Sources */,
+				034700B298EE486E75E2F91A /* soundcopydlg.cpp in Sources */,
+				22ECCDECEBCDE06D3112638E /* soundfont.cpp in Sources */,
+				31D556555DF65789305CAA4C /* soundfontsample.cpp in Sources */,
+				49FC08B531F6710493E6A16C /* soundkeyboard.cpp in Sources */,
+				F2B18774C7BC1D9A87531638 /* soundlooppanel.cpp in Sources */,
+				A1CE1879B56D5B7F43CB48D5 /* soundparam.cpp in Sources */,
+				355CCDB01A59B41A1708AAD2 /* soundsamplepanel.cpp in Sources */,
+				3DBB282618909F131D5EF601 /* soundselection.cpp in Sources */,
+				9141BAC6ECED12BD8D87B4D0 /* soundsynthpanel.cpp in Sources */,
+				7CAE4EFFA23DF4BB502FA24A /* stopwatch.cpp in Sources */,
+				1752E412A233BC19BA50A678 /* synmodel.cpp in Sources */,
+				791054D1695B95F86AEAFBA0 /* synthengine.c in Sources */,
+				FAE07206510E2BA4A7AB046B /* thread.cpp in Sources */,
+				3A3283540EC3E0DD5FD62B3B /* wave.cpp in Sources */,
+				A156E4485AD88C5D6EE52FFB /* wavedisp.cpp in Sources */,
+				E89B51B8A092F66333D09F7E /* wavegen.cpp in Sources */,
+				73E8A53E3EBDFDB5CE419839 /* wavekeyboard.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0D41DA71428E7492788BC974 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B21838252122D60364098BED /* ThirdParty */;
+			targetProxy = EF4901B7A1AC48770384485B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		11FFF103B817B46705F883FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+			};
+			name = Debug;
+		};
+		173BE00100C7CB0D05778042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+			};
+			name = Release;
+		};
+		333547D1599FCF0AFD9D8107 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					__WXMAC__,
+					__WXOSX__,
+					__WXOSX_COCOA__,
+					"_FILE_OFFSET_BITS=64",
+					"wxDEBUG_LEVEL=0",
+					USE_PORTMIDI,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/SRCDIR",
+					"$(SRCROOT)/SRCDIR/wavegen",
+					"$(THIRDPARTY_PREFIX)/include",
+					"$(THIRDPARTY_PREFIX)/lib/wx/include/osx_cocoa-unicode-static-$(WX_VERSION)",
+					"$(THIRDPARTY_PREFIX)/include/wx-$(WX_VERSION)",
+				);
+				INFOPLIST_FILE = SRCDIR/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(THIRDPARTY_PREFIX)/lib/libwx_osx_cocoau-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libwxtiff-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libwxjpeg-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libwxpng-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libwxregexu-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libwxzlib-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libwxexpat-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libportaudio.a",
+					"$(THIRDPARTY_PREFIX)/lib/libportmidi.a",
+					"$(THIRDPARTY_PREFIX)/lib/libsamplerate.a",
+					"-lpthread",
+					"-liconv",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.curlsystems.prophet2012;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5CA9CA70D9C8F2414EDE7170 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				THIRDPARTY_PREFIX = "$(SRCROOT)/ThirdParty/install";
+				WX_VERSION = 3.2;
+			};
+			name = Release;
+		};
+		9D1912875AF457C26978622B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					__WXMAC__,
+					__WXOSX__,
+					__WXOSX_COCOA__,
+					"_FILE_OFFSET_BITS=64",
+					"wxDEBUG_LEVEL=0",
+					USE_PORTMIDI,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/SRCDIR",
+					"$(SRCROOT)/SRCDIR/wavegen",
+					"$(THIRDPARTY_PREFIX)/include",
+					"$(THIRDPARTY_PREFIX)/lib/wx/include/osx_cocoa-unicode-static-$(WX_VERSION)",
+					"$(THIRDPARTY_PREFIX)/include/wx-$(WX_VERSION)",
+				);
+				INFOPLIST_FILE = SRCDIR/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(THIRDPARTY_PREFIX)/lib/libwx_osx_cocoau-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libwxtiff-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libwxjpeg-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libwxpng-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libwxregexu-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libwxzlib-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libwxexpat-$(WX_VERSION).a",
+					"$(THIRDPARTY_PREFIX)/lib/libportaudio.a",
+					"$(THIRDPARTY_PREFIX)/lib/libportmidi.a",
+					"$(THIRDPARTY_PREFIX)/lib/libsamplerate.a",
+					"-lpthread",
+					"-liconv",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.curlsystems.prophet2012;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EA54C7C002A5C259C044C335 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				THIRDPARTY_PREFIX = "$(SRCROOT)/ThirdParty/install";
+				WX_VERSION = 3.2;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		121AEAB9BADFD7D7A1078C03 /* Build configuration list for PBXAggregateTarget "ThirdParty" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11FFF103B817B46705F883FA /* Debug */,
+				173BE00100C7CB0D05778042 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7B6C054593064833660FFFE7 /* Build configuration list for PBXProject "Prophet2012" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA54C7C002A5C259C044C335 /* Debug */,
+				5CA9CA70D9C8F2414EDE7170 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EC7F1FA3CFC2175D6E98A5F1 /* Build configuration list for PBXNativeTarget "Prophet2012" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				333547D1599FCF0AFD9D8107 /* Debug */,
+				9D1912875AF457C26978622B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 72E59D91CC4A62788F4C0DB3 /* Project object */;
+}

@@ -1,0 +1,10 @@
+# third party libraries, built by scripts/build-thirdparty-mac.sh
+/ThirdParty/
+
+# Xcode build output and user data
+/build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+
+.DS_Store

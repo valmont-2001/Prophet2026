@@ -16,6 +16,7 @@ using namespace std;
 #include <wx/spinctrl.h>
 #include <wx/notebook.h>
 #include <wx/stdpaths.h>
+#include <wx/filename.h>
 #include <wx/wupdlock.h>
 
 #include "GUILayout.h"
@@ -39,6 +40,7 @@ using namespace std;
 #include "soundselection.h"
 #include "proph2000.h"
 #include "logger.h"
+#include "macstyle.h"
 
 
 IMPLEMENT_APP(MyApp)
@@ -106,6 +108,37 @@ END_EVENT_TABLE()
 
 FILE *configfile;
 
+// Location of Prophet2012.cfg
+static wxString configFileName(bool write)
+{
+   wxString cfgfilename;
+#ifdef __WXMAC__
+   // ~/Library/Application Support/Prophet2012/ - the app bundle itself may be
+   // read only (disk image, /Applications) and is replaced by every update
+   wxFileName dir(wxStandardPaths::Get().GetUserDataDir(), wxEmptyString);
+   if(write)
+   {
+      dir.Mkdir(wxS_DIR_DEFAULT, wxPATH_MKDIR_FULL);
+   }
+   cfgfilename = dir.GetPath(wxPATH_GET_SEPARATOR) + "Prophet2012.cfg";
+   if(!write && !wxFileExists(cfgfilename))
+   {
+      // fall back to the location used by older versions (inside the bundle)
+      wxString old = wxStandardPaths::Get().GetExecutablePath();
+      old = old.SubString(0, old.rfind("Contents/") + 8) + "Resources/Prophet2012.cfg";
+      if(wxFileExists(old))
+      {
+         cfgfilename = old;
+      }
+   }
+#else
+   cfgfilename = wxStandardPaths::Get().GetDataDir();
+   cfgfilename += "\\";
+   cfgfilename += "Prophet2012.cfg";
+#endif
+   return cfgfilename;
+}
+
 wxString argfilename;
 
 // `Main program' equivalent, creating windows and returning main app frame
@@ -123,6 +156,7 @@ bool MyApp::OnInit()
 // wxSystemOptions::SetOption(wxT("msw.notebook.themed-background"), 0);
     // Create the main frame window
 #ifdef __WXMAC__
+   MacSetupStyle();
    frame = new MyFrame((wxFrame *) NULL, wxID_ANY, WINDOW_TITLE, wxDefaultPosition, wxSize(MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT), wxMINIMIZE_BOX | wxSYSTEM_MENU | wxCAPTION | wxCLOSE_BOX /*| wxCLIP_CHILDREN*/);
 #else
    frame = new MyFrame((wxFrame *) NULL, wxID_ANY, WINDOW_TITLE, wxDefaultPosition, wxSize(MAIN_WINDOW_WIDTH, MAIN_WINDOW_HEIGHT), wxRESIZE_BORDER | wxMINIMIZE_BOX | wxSYSTEM_MENU | wxCAPTION | wxCLOSE_BOX /*| wxCLIP_CHILDREN*/);
@@ -134,6 +168,20 @@ bool MyApp::OnInit()
     frame->Show(true);
 
     SetTopWindow(frame);
+
+#ifdef __WXMAC__
+    // "Quit" in the application menu (Cmd+Q) is sent to the active window (e.g. the
+    // MIDI keyboard or the log window). Handled here on application level, as
+    // otherwise wxWidgets only leaves the main loop and the settings are not saved
+    // in MyFrame::OnClose().
+    Bind(wxEVT_MENU, [this](wxCommandEvent &WXUNUSED(event))
+    {
+       if(frame)
+       {
+          frame->Close(true);
+       }
+    }, wxID_EXIT);
+#endif
 
     return true;
 }
@@ -192,6 +240,9 @@ MyFrame::MyFrame(wxWindow* parent, wxWindowID id, const wxString& title, const w
 #endif
 {
    m_log_window = new wxLogWindow(this, wxT("Log"), false, false);
+#ifdef __WXMAC__
+   MacFixLogWindowMenu(m_log_window);
+#endif
 #if defined(DEBUG_VERSION) && !defined(BURT)
    m_log_window->Show();
 #endif
@@ -208,17 +259,7 @@ MyFrame::MyFrame(wxWindow* parent, wxWindowID id, const wxString& title, const w
    SetMaxSize(size);
 //   SetMinSize(size);   
 
-   //wxStandardPaths stdpaths;
-   wxString cfgfilename;
-#ifdef __WXMAC__
-   cfgfilename = wxStandardPaths::Get().GetExecutablePath();
-   cfgfilename = cfgfilename.SubString(0, cfgfilename.rfind("Contents/") + 8);
-   cfgfilename += "Resources/";
-#else
-   cfgfilename = wxStandardPaths::Get().GetDataDir();
-   cfgfilename += "\\";
-#endif
-   cfgfilename += "Prophet2012.cfg";
+   wxString cfgfilename = configFileName(false);
 
    configfile = fopen(cfgfilename.mb_str(), "r");
 
@@ -251,7 +292,7 @@ MyFrame::MyFrame(wxWindow* parent, wxWindowID id, const wxString& title, const w
    fileMenu->Append(GUI_ABOUT, wxT("&About"));
 
    wxMenu *transferMenu = new wxMenu;
-   transferMenu->Append(GUI_TX2PC, wxT("&Transfer to PC"));
+   transferMenu->Append(GUI_TX2PC, wxT("&Transfer to Computer"));
    transferMenu->AppendSeparator();
    transferMenu->Append(GUI_TX2PROPHET, wxT("&Transfer to Prophet"));
    transferMenu->AppendSeparator();
@@ -534,13 +575,11 @@ void MyFrame::OnSizeEvent(wxSizeEvent& event)
 }
 
 #ifdef __WXMAC__
-void MyFrame::OnClose(wxCloseEvent &event)
+void MyFrame::OnClose(wxCloseEvent &WXUNUSED(event))
 {
-   if(event.CanVeto() == false)
-   {
-      m_panel->saveConfig();
-      Destroy();
-   }
+   // closing the main window (also via its close button) quits the application
+   m_panel->saveConfig();
+   Destroy();
 }
 #endif
 
@@ -599,6 +638,12 @@ m_sound_selection(NULL), m_log(log), m_midi(NULL), m_proph(NULL)
    SetSizer(vsizer);
 
    m_midikeyboard = new MIDIKeyboardDlg(wxT("MIDI Keyboard"), wxDefaultPosition, 1024, 240, this, m_midi, m_proph);
+
+#ifdef __WXMAC__
+   MacAdaptLayout(m_notebook);
+   MacAdaptLayout(m_wavegen);
+   MacAdaptLayout(m_midikeyboard);
+#endif
 
    if(configfile)
    {
@@ -661,17 +706,7 @@ MyPanel::~MyPanel()
 
 void MyPanel::saveConfig(void)
 {
-   //wxStandardPaths stdpaths;
-   wxString cfgfilename;
-#ifdef __WXMAC__
-   cfgfilename = wxStandardPaths::Get().GetExecutablePath();
-   cfgfilename = cfgfilename.SubString(0, cfgfilename.rfind("Contents/") + 8);
-   cfgfilename += "Resources/";
-#else
-   cfgfilename = wxStandardPaths::Get().GetDataDir();
-   cfgfilename += "\\";
-#endif
-   cfgfilename += "Prophet2012.cfg";
+   wxString cfgfilename = configFileName(true);
    
    configfile = fopen(cfgfilename.mb_str(), "w");
    if(configfile)
