@@ -71,8 +71,8 @@ targets:
       properties:
         CFBundleName: Prophet2012
         CFBundleDisplayName: Prophet 2012
-        CFBundleShortVersionString: "1.0"
-        CFBundleVersion: "1"
+        CFBundleShortVersionString: "1.5b"
+        CFBundleVersion: "1.5"
         NSHighResolutionCapable: true
         NSPrincipalClass: NSApplication
     settings:
