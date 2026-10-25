@@ -1,0 +1,37 @@
+name: Build Windows
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+
+      - name: Cache des bibliotheques
+        uses: actions/cache@v4
+        with:
+          path: build
+          key: windows-build-${{ hashFiles('CMakeLists.txt') }}
+
+      - name: Configurer
+        run: cmake -S . -B build -A x64
+
+      - name: Compiler
+        run: cmake --build build --config Release --parallel
+
+      - name: Preparer l'executable
+        shell: bash
+        run: |
+          mkdir dist
+          cp build/Release/Prophet2026.exe dist/
+
+      - name: Publier l'executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: Prophet2026-windows
+          path: dist
