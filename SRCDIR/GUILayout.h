@@ -9,7 +9,6 @@
 #define __GUILAYOUT_H__
 
 #include <wx/artprov.h>
-#include <wx/xrc/xmlres.h>
 #include <wx/string.h>
 #include <wx/stattext.h>
 #include <wx/gdicmn.h>

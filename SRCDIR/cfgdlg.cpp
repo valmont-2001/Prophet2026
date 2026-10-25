@@ -43,8 +43,15 @@ CfgDlg::CfgDlg(wxWindow* parent, wxWindowID id, MIDI *midi, Proph2000 *proph, Au
    }
 
 
-   m_midi_in_device->SetSelection(m_midi->getInDeviceID());
-   m_midi_out_device->SetSelection(m_midi->getOutDeviceID());
+   // Selection seulement si le peripherique existe (sinon wxWidgets 3 signale une erreur)
+   if(m_midi->getInDeviceID() < m_midi_in_device->GetCount())
+   {
+      m_midi_in_device->SetSelection(m_midi->getInDeviceID());
+   }
+   if(m_midi->getOutDeviceID() < m_midi_out_device->GetCount())
+   {
+      m_midi_out_device->SetSelection(m_midi->getOutDeviceID());
+   }
    m_midi_ch->SetValue(m_midi->getChannel());
 
 
@@ -57,7 +64,10 @@ CfgDlg::CfgDlg(wxWindow* parent, wxWindowID id, MIDI *midi, Proph2000 *proph, Au
       ++myAItr;
    }
 
-   m_audio_device->SetSelection(audio->getAudioDeviceID());
+   if((unsigned int)audio->getAudioDeviceID() < m_audio_device->GetCount())
+   {
+      m_audio_device->SetSelection(audio->getAudioDeviceID());
+   }
 
    m_fontsize->AppendString("4");
    m_fontsize->AppendString("6");

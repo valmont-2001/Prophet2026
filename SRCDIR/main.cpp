@@ -196,8 +196,6 @@ MyFrame::MyFrame(wxWindow* parent, wxWindowID id, const wxString& title, const w
 
    wxIcon icon(logo);
    SetIcon(icon);
-   SetStatusText(wxT("Prophet 2012 - (c) Marius Goebel"));
-
    DragAcceptFiles(true);
 
    SetMaxSize(size);
@@ -337,6 +335,7 @@ MyFrame::MyFrame(wxWindow* parent, wxWindowID id, const wxString& title, const w
    }
 
    this->CreateStatusBar();
+   SetStatusText(wxT("Prophet 2012 - (c) Marius Goebel"));
 
    m_about = new About(this);
 

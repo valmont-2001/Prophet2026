@@ -1,0 +1,2 @@
+// Ressources Windows: manifeste (look moderne des controles) et version
+#include "wx/msw/wx.rc"
