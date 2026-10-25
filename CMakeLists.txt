@@ -1,4 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
+# CMake 4 refuse les anciennes bibliotheques (PortAudio, wxWidgets) qui declarent une version < 3.5
+set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
+
 project(Prophet2026 LANGUAGES C CXX)
 
 # Par defaut: version "Release" (rapide, sans les alertes de developpement de wxWidgets)
