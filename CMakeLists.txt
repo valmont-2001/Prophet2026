@@ -61,6 +61,8 @@ if(PROPHET_BUNDLED_LIBS)
   set(PA_BUILD_STATIC ON CACHE BOOL "" FORCE)
   set(PA_BUILD_TESTS OFF CACHE BOOL "" FORCE)
   set(PA_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+  # Pilote WDM-KS inutile (WASAPI, DirectSound et MME suffisent) et en conflit avec uuid.lib a l'edition de liens
+  set(PA_USE_WDMKS OFF CACHE BOOL "" FORCE)
   FetchContent_Declare(portaudio
     GIT_REPOSITORY https://github.com/PortAudio/portaudio.git GIT_TAG v19.7.0 GIT_SHALLOW TRUE)
 
