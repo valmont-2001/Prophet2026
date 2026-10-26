@@ -2,7 +2,6 @@
 #include <wx/thread.h>
 #include <wx/dynarray.h>
 #include <wx/numdlg.h>
-#include <wx/progdlg.h>
 #include <wx/spinctrl.h>
 #include "thread.h"
 #include "types.h"

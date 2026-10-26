@@ -31,7 +31,7 @@
 class MIDI;
 class Logger;
 class MyPanel;
-class wxProgressDialog;
+class ProgressWindow;
 class StopWatch;
 
 #define SOUND_PARAM_BYTES 76
@@ -367,7 +367,7 @@ private:
    bool m_map_received_data;
    uint8_t m_map_rx_slot;
    uint8_t m_current_rx_slot;
-   wxProgressDialog *m_progress_dlg;
+   ProgressWindow *m_progress_dlg;
    wxString m_progress_msg;
    uint16_t m_invalid_packet_cnt;
    uint8_t m_last_data_packet_size;

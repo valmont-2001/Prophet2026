@@ -1,7 +1,7 @@
 #include "types.h"
    #include <wx/wx.h>
    #include <wx/spinctrl.h>
-   #include <wx/progdlg.h>
+   #include "progresswin.h"
 #include "stopwatch.h"
 #include "proph2000.h"
 #include "logger.h"
@@ -63,9 +63,7 @@ Proph2000::Proph2000(Logger *log)  : m_midi(NULL), m_packet_counter(0), m_main_m
    ,m_main(main)
 {
    clear();
-   m_progress_dlg = new wxProgressDialog("Transfer", "", 100);
-   m_progress_dlg->SetSize(wxDefaultPosition.x, wxDefaultPosition.y, 400, wxDefaultSize.GetHeight());
-   m_progress_dlg->Hide();
+   m_progress_dlg = new ProgressWindow(wxT("Transfer"), 100); // cachee jusqu'au debut d'un transfert
 
    uint8_t i;
    for(i = 0; i < 16; i++)
