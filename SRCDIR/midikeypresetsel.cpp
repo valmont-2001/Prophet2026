@@ -8,11 +8,10 @@
 #include <map>
 using namespace std;
 #include "midikeypresetsel.h"
-#include "midikeyboarddlg.h"
 
 
 
-MIDIKeyPresetSelImpl::MIDIKeyPresetSelImpl(wxWindow *parent, MIDIKeyboardDlg *panel) :
+MIDIKeyPresetSelImpl::MIDIKeyPresetSelImpl(wxWindow *parent, PresetSelectionListener *panel) :
    MIDIKeyboardPresetSelection(parent),
    m_panel(panel)
 {

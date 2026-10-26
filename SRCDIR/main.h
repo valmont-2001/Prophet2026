@@ -23,6 +23,7 @@ class MyMapParam;
 class MyPresetParam;
 class Samples;
 class MIDIKeyboardDlg;
+class PlayPanel;
 class wxNotebookEvent;
 class CfgDlg;
 class Audio;
@@ -169,6 +170,7 @@ private:
    MyMapParam *m_map_param;
    MyPresetParam *m_preset_param;
    MIDIKeyboardDlg *m_midikeyboard;
+   PlayPanel *m_playpanel;
    CfgDlg *m_cfg_dlg;
    wxRadioBox *m_map_select;
    wxRadioBox *m_preset_select;

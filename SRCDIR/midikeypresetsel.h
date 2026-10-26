@@ -1,16 +1,17 @@
 #ifndef __MIDIKEYPRESELH__
 #define __MIDIKEYPRESELH__
 
+#include "presetlistener.h"
+
 class MyPanel;
 class Proph2000;
 class SoundSynthPanel;
-class MIDIKeyboardDlg;
 
 
 class MIDIKeyPresetSelImpl : public MIDIKeyboardPresetSelection
 {
 public:
-    MIDIKeyPresetSelImpl(wxWindow *parent, MIDIKeyboardDlg *panel);
+    MIDIKeyPresetSelImpl(wxWindow *parent, PresetSelectionListener *panel);
     ~MIDIKeyPresetSelImpl();
     void selectPreset1();
     void selectPreset2();
@@ -26,7 +27,7 @@ public:
     void selectPreset12();
 
 private:
-   MIDIKeyboardDlg *m_panel;
+   PresetSelectionListener *m_panel;
 
    void OnSelectPreset1(wxCommandEvent& event);
    void OnSelectPreset2(wxCommandEvent& event);

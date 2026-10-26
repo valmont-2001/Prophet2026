@@ -32,6 +32,7 @@ using namespace std;
 #include "samples.h"
 #include "cfgdlg.h"
 #include "midikeyboarddlg.h"
+#include "playpanel.h"
 #include "audio.h"
 #include "about.h"
 #include "soundselection.h"
@@ -542,7 +543,7 @@ END_EVENT_TABLE()
 MyPanel::MyPanel(wxFrame *frame, int x, int y, int w, int h, MyFrame *topframe,Logger *log) : 
 wxScrolledWindow( frame, wxID_ANY, wxPoint(x, y), wxSize(w, h) ),
 m_topframe(topframe), m_onlineupdate_active(false),
-m_transfer_in_progress(false), m_sound_param(NULL), m_map_param(NULL), m_preset_param(NULL), m_samples(NULL), m_midikeyboard(NULL), 
+m_transfer_in_progress(false), m_sound_param(NULL), m_map_param(NULL), m_preset_param(NULL), m_samples(NULL), m_midikeyboard(NULL), m_playpanel(NULL), 
 m_sound_selection(NULL), m_log(log), m_midi(NULL), m_proph(NULL)
 {
 //   uint8_t i;
@@ -574,6 +575,8 @@ m_sound_selection(NULL), m_log(log), m_midi(NULL), m_proph(NULL)
    m_notebook->AddPage(createSoundPanel(m_notebook), wxT(" Sounds "));
    m_notebook->AddPage(createMapPanel(m_notebook), wxT(" Maps "));
    m_notebook->AddPage(createPresetPanel(m_notebook), wxT(" Presets "));
+   m_playpanel = new PlayPanel(m_notebook, this, m_midi, m_proph, w);
+   m_notebook->AddPage(m_playpanel, wxT(" Play "));
    
    vsizer->Add(m_notebook);
    SetSizer(vsizer);
@@ -806,6 +809,10 @@ void MyPanel::activatePreset(uint8_t preset_u8)
 {
    m_preset_param->activatePreset(preset_u8);
    m_midikeyboard->activatePreset(preset_u8);
+   if(m_playpanel)
+   {
+      m_playpanel->activatePreset(preset_u8);
+   }
 
    if(m_onlineupdate_active)
    {
@@ -1050,6 +1057,10 @@ void MyPanel::transferStarted(void)
    m_topframe->transferStarted();
 
    m_midikeyboard->setMIDIInhibit(true);
+   if(m_playpanel)
+   {
+      m_playpanel->setMIDIInhibit(true);
+   }
    m_transfer_in_progress = true;
 
    m_sound_param->transferStarted();
@@ -1069,6 +1080,10 @@ void MyPanel::transferEnded(void)
    m_transfer_in_progress = false;
    
    m_midikeyboard->setMIDIInhibit(false);
+   if(m_playpanel)
+   {
+      m_playpanel->setMIDIInhibit(false);
+   }
 
    m_sound_param->transferEnded();
 

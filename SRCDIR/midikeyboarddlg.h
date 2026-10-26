@@ -1,6 +1,8 @@
 #ifndef __MIDIKEYBOARDDLGH__
 #define __MIDIKEYBOARDDLGH__
 
+#include "presetlistener.h"
+
 class MyPanel;
 class MIDI;
 class MIDIKeyboard;
@@ -8,7 +10,7 @@ class PresetKeyboard;
 class Proph2000;
 class MIDIKeyPresetSelImpl;
 
-class MIDIKeyboardDlg : public wxDialog
+class MIDIKeyboardDlg : public wxDialog, public PresetSelectionListener
 {
 public:
     MIDIKeyboardDlg(const wxString &title, const wxPoint& pos, int w, int h, MyPanel *topframe, MIDI *midi, Proph2000 *proph);
@@ -16,7 +18,7 @@ public:
 
     void setMIDIInhibit(bool flag);
 
-    void presetSelected(uint8_t preset);
+    virtual void presetSelected(uint8_t preset);
     void activatePreset(uint8_t preset);
 
 	DECLARE_EVENT_TABLE()
