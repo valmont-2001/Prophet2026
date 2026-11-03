@@ -575,7 +575,7 @@ m_sound_selection(NULL), m_log(log), m_midi(NULL), m_proph(NULL)
    m_notebook->AddPage(createSoundPanel(m_notebook), wxT(" Sounds "));
    m_notebook->AddPage(createMapPanel(m_notebook), wxT(" Maps "));
    m_notebook->AddPage(createPresetPanel(m_notebook), wxT(" Presets "));
-   m_playpanel = new PlayPanel(m_notebook, this, m_midi, m_proph, w);
+   m_playpanel = new PlayPanel(m_notebook, this, m_midi, m_proph, m_audio, w);
    m_notebook->AddPage(m_playpanel, wxT(" Play "));
    
    vsizer->Add(m_notebook);
@@ -1407,6 +1407,17 @@ void MyPanel::OnDiscard(void)
 
 void MyPanel::OnMainNotebookChanged(wxNotebookEvent& event)
 {
+   if(m_playpanel)
+   {
+      if(event.GetSelection() >= 0 && m_notebook->GetPage(event.GetSelection()) == m_playpanel)
+      {
+         m_playpanel->reloadSounds();   // prend en compte les modifications faites dans les autres onglets
+      }
+      else
+      {
+         m_playpanel->allNotesOff();
+      }
+   }
    updateGUI();
    if(m_sound_param)
    {

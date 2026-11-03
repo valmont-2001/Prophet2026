@@ -22,7 +22,7 @@ using namespace std;
 PresetKeyboard::PresetKeyboard(wxWindow *parent, wxWindowID id, const wxPoint& pos, const wxSize& size,MyPresetParam *presetparamdlg,
                                Proph2000 *proph, MIDI *midi, uint8_t preset_u8) :
    Keyboard(parent, id, pos, size), m_presetparamdlg(presetparamdlg), m_proph(proph), 
-   m_preset_u8(preset_u8), m_size(size), m_midi(midi)
+   m_preset_u8(preset_u8), m_size(size), m_midi(midi), m_inhibit(false), m_listener(NULL)
 {
 }
 
@@ -45,6 +45,11 @@ void PresetKeyboard::noteOn(void)
    {
       m_presetparamdlg->handleKeyboardNoteEvent(m_note);
    }
+   if(m_listener)
+   {
+      m_listener->keyDown(m_note, m_velocity);
+      return;
+   }
    if(m_midi)
    {
       if(!m_inhibit)
@@ -64,6 +69,11 @@ void PresetKeyboard::noteOn(void)
 
 void PresetKeyboard::noteOff(void)
 {
+   if(m_listener)
+   {
+      m_listener->keyUp(m_note, m_velocity);
+      return;
+   }
    if(m_midi)
    {
       if(!m_inhibit)

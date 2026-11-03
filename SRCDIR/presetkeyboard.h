@@ -1,6 +1,8 @@
 #ifndef __PRESETKEYBOARDH__
 #define __PRESETKEYBOARDH__
 
+#include "presetlistener.h"
+
 class Keyboard;
 class MyPresetParam;
 class Proph2000;
@@ -18,6 +20,7 @@ public:
     void setPreset(uint8_t preset_u8);
 
     void setMIDIInhibit(bool flag) { m_inhibit = flag; };
+    void setKeyListener(KeyListener *listener) { m_listener = listener; };
 
 private:
    MyPresetParam *m_presetparamdlg;
@@ -26,6 +29,7 @@ private:
    wxSize m_size;
    MIDI *m_midi;
    bool m_inhibit;
+   KeyListener *m_listener;
 
    virtual void noteOn(void);
    virtual void noteOff(void);
