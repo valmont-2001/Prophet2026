@@ -21,36 +21,41 @@ SoftProphetPlayer::~SoftProphetPlayer()
 }
 
 
-int SoftProphetPlayer::paCallback(const void *input, void *output, unsigned long frames, const void *timeinfo,
-                                  unsigned long flags, void *userdata)
+void SoftProphetPlayer::renderBlock(float *out, unsigned long frames)
 {
-   SoftProphetPlayer *self = (SoftProphetPlayer *)userdata;
-   float *out = (float *)output;
    unsigned long done = 0;
-   const int ch = self->m_channels;
+   const int ch = m_channels;
 
    while(done < frames)
    {
       unsigned long n = frames - done;
-      if(n > self->m_left.size())
+      if(n > m_left.size())
       {
-         n = self->m_left.size();
+         n = (unsigned long)m_left.size();
       }
-      self->m_engine->render(&self->m_left[0], &self->m_right[0], (int)n);
+      m_engine->render(&m_left[0], &m_right[0], (int)n);
       for(unsigned long i = 0; i < n; i++)
       {
          if(ch >= 2)
          {
-            out[(done + i) * ch] = self->m_left[i];
-            out[(done + i) * ch + 1] = self->m_right[i];
+            out[(done + i) * ch] = m_left[i];
+            out[(done + i) * ch + 1] = m_right[i];
          }
          else
          {
-            out[done + i] = self->m_left[i];
+            out[done + i] = m_left[i];
          }
       }
       done += n;
    }
+}
+
+
+// fonction de rappel de PortAudio (type exact exige par le compilateur Visual Studio)
+static int softProphetPaCallback(const void *input, void *output, unsigned long frames,
+                                 const PaStreamCallbackTimeInfo *timeinfo, PaStreamCallbackFlags flags, void *userdata)
+{
+   ((SoftProphetPlayer *)userdata)->renderBlock((float *)output, frames);
    return paContinue;
 }
 
@@ -100,7 +105,7 @@ bool SoftProphetPlayer::start(Audio *audio)
    m_right.assign(1024, 0.0f);
 
    PaStream *stream = NULL;
-   PaError err = Pa_OpenStream(&stream, NULL, &out, m_rate, paFramesPerBufferUnspecified, paNoFlag, &SoftProphetPlayer::paCallback, this);
+   PaError err = Pa_OpenStream(&stream, NULL, &out, m_rate, paFramesPerBufferUnspecified, paNoFlag, softProphetPaCallback, this);
    if(err != paNoError)
    {
       stop();

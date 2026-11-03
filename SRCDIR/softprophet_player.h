@@ -20,6 +20,9 @@ public:
 
    softprophet::Engine *engine() { return m_engine; }
 
+   // appele par le fil audio: remplit le tampon entrelace "out" de "frames" images
+   void renderBlock(float *out, unsigned long frames);
+
 private:
    void *m_stream;            // PaStream*
    softprophet::Engine *m_engine;
@@ -28,9 +31,6 @@ private:
    bool m_running;
    bool m_pa_initialized;
    std::vector<float> m_left, m_right;
-
-   static int paCallback(const void *input, void *output, unsigned long frames, const void *timeinfo,
-                         unsigned long flags, void *userdata);
 };
 
 #endif
